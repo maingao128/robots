@@ -13,17 +13,19 @@ http.createServer(function(req,res){
 
 			response.on("end",function(){
 				currData = handleData(datas);
-				req.on("data",function(){
-
-				})
-				req.on("end",function(){
-					res.writeHead(200,{"Content-Type":"text/html"});
-					res.write(currData)
-					res.end();
-				})
+				res.writeHead(200,{"Content-Type":"text/html"});
+				res.write(currData)
+				res.end();
 			})
 		});
-	
+
+		req.on("data",function(){
+
+		})
+		req.on("end",function(){
+			
+		})
+
 }).listen(2015);
 
 
